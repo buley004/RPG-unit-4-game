@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Beatle Battle!</title>
+
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <!-- header -->
+    <div id="header">
+        <h1>Beatle Battle!</h1>
+    </div>
+
+    <!-- Starting available characters -->
+    <div id="character-bank">
+        <div class="fighter" id=0 data-hero=false>
+            <span class="name">John Lennon</span>
+            <img class="fighter-pic" src="assets/images/john.jpg">
+            <span class="hp">0</span>
+        </div>
+        <div class="fighter" id=1 data-hero=false>
+            <span class="name">Paul McCartney</span>
+            <img class="fighter-pic" src="assets/images/paul.jpg">
+            <span class="hp">0</span>
+        </div>
+        <div class="fighter" id=2 data-hero=false>
+            <span class="name">George Harrison</span>
+            <img class="fighter-pic" src="assets/images/george.jpg">
+            <span class="hp">0</span>
+        </div>
+        <div class="fighter" id=3 data-hero=false>
+            <span class="name">Ringo Starr</span>
+            <img class="fighter-pic" src="assets/images/ringo.jpg">
+            <span class="hp">0</span>
+        </div>
+    </div>
+
+    <!-- Display chosen character -->
+    <div>Your Character</div>
+    <div id="you"></div>
+
+    <!-- Display available enemies -->
+    <div>Enemies available to attack</div>
+    <div id="enemy-bank"></div>
+
+    <!-- Select button to attack -->
+    <div>Fight selection</div>
+    <button id="attack">Attack</button>
+
+    <!-- Display defender -->
+    <div>Defender</div>
+    <div id="enemy"></div>
+
+    <!-- Show game message -->
+    <div id="message"></div>
+
+    <!-- link to javascript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/javascript/game.js"></script>
+
+</body>
+
+</html>
