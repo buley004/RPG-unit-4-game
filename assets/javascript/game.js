@@ -57,6 +57,10 @@ $(".fighter").on("click", function () {
         heroHp = hero.hp;
         heroScore = $("#" + hero.name + "hp");
 
+        //change background color
+        $(heroDiv).css({"background-color": "green", "color": "white"});
+        $("#character-bank>div").css({"background-color": "red", "border-color": "black", "color": "white"}); 
+
         //move other characters to enemy bank
         $("#enemy-bank").append($("#character-bank"));
 
@@ -71,7 +75,10 @@ $(".fighter").on("click", function () {
         enemyHp = enemy.hp; 
         
         //change background color
-        $(enemyDiv).css({"background-color": "black", "color": "white"});
+        $(enemyDiv).css({"background-color": "black", "color": "white", "border-color": "red"});
+
+        //clear message text
+        message.text("");
     };
 
     console.log(enemyScore);
