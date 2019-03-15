@@ -3,6 +3,10 @@
     src: url("../fonts/Brewsky.ttf"); 
 }
 
+.col-md-6 {
+    margin-top: 20px;
+}
+
 body {
     background-image: url('../images/background.jpg');
     background-size: cover;
@@ -13,10 +17,11 @@ h1 {
     font-size: 3rem;
     color: #0c8191; 
     text-align: center;
+    padding-top: 50px;
 }
 
 #main {
-    max-width: 500px;
+    max-width: 471px;
     margin: auto;
     background-color: rgb(118, 118, 73, 0.5);
     padding: 5px;

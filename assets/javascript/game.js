@@ -1,24 +1,24 @@
 var heroChosen = false;
 var enemyChosen = false;
 var heroDiv;
-var enemyDiv
+var enemyDiv;
 var hero;
 var heroHp;
 var enemyHp;
 var enemy;
 var heroAp;
 var winCount = 0;
-var gamePlayed = false;
 var alive = true;
 
-//store span here to update hp
+//store span here to update hp on screen
 var enemyScore;
-var heroScore
+var heroScore;
 
 //write messages with this variable
 var message = $("#message");
 var messageb = $("#message2");
 
+//store fighters and stats here
 var fighters = [
     { name: "John", hp: 120, ap: 8, cap: 10, photo: "assets/images/john.jpg" },
     { name: "Paul", hp: 100, ap: 10, cap: 15, photo: "assets/images/paul.jpg" },
@@ -26,12 +26,8 @@ var fighters = [
     { name: "Ringo", hp: 130, ap: 9, cap: 100, photo: "assets/images/ringo.jpg" }
 ]
 
-
 //hide restart button
 $("#restart").hide();
-
-heroChosen = false;
-enemyChosen = false;
 
 //add content to fighters
 for (let i = 0; i < fighters.length; i++) {
@@ -50,7 +46,6 @@ for (let i = 0; i < fighters.length; i++) {
 
     fighterDiv.append(fighterPic);
     fighterDiv.append(totalHp);
-
 }
 
 
@@ -75,9 +70,12 @@ $(".fighter").on("click", function () {
         //move other characters to enemy bank
         $("#enemy-bank").append($("#character-bank"));
 
+        //remove choose your fighter message
+        $("#choose").text("Choose your enemy!");
+
     }
     //move selected enemy to enemy div
-    else if (enemyChosen === false && $(this).data("hero") == false) {
+    else if (enemyChosen === false && $(this).data("hero") == false && winCount < (fighters.length-1)) {
         enemyDiv = this;
         $("#enemy").append(enemyDiv);
         enemyChosen = true;
@@ -90,6 +88,7 @@ $(".fighter").on("click", function () {
 
         //clear message text
         message.text("");
+        $("#choose").text("");
     };
 
     console.log(enemyScore);
@@ -114,6 +113,7 @@ $("#attack").on("click", function () {
                 $("#restart").show();
                 return
             }
+            //display victory message
             message.text("You defeated " + enemy.name + "! Choose another enemy.");
             messageb.text("");
             enemyChosen = false;
@@ -124,15 +124,17 @@ $("#attack").on("click", function () {
         heroHp -= enemy.cap;
         heroScore.text(heroHp);
 
+        //check if hero is alive
         if (heroHp > 0) {
-        
-        //display message with attacks
-        message.text("You attacked " + enemy.name + " for " + heroAp + " damage.");
-        messageb.text(enemy.name + " counter-attacked for " + enemy.cap + " damage.");
 
-        //increase hero's attack power
-        heroAp += hero.ap;
+            //display message with attacks
+            message.text("You attacked " + enemy.name + " for " + heroAp + " damage.");
+            messageb.text(enemy.name + " counter-attacked for " + enemy.cap + " damage.");
+
+            //increase hero's attack power
+            heroAp += hero.ap;
         }
+        //display defeat message and restart button
         else {
             message.text("You have been defeated!");
             messageb.text("");
@@ -140,7 +142,7 @@ $("#attack").on("click", function () {
             $("#restart").show();
         }
     }
-    else if (winCount < (fighters.length -1) && alive) {
+    else if (winCount < (fighters.length - 1) && alive) {
         message.text("No enemy to fight!");
     }
 });
@@ -148,16 +150,21 @@ $("#attack").on("click", function () {
 //reset button
 $("#restart").on("click", function () {
     heroChosen = false;
+    enemyChosen = false;
     winCount = 0;
-    
+    alive = true;
+
     //move fighters to selection div and reset css
     for (let i = 0; i < fighters.length; i++) {
         var fighterDiv = $("#" + i);
+        //unhide fighter
         $(fighterDiv).show();
-        $("#character-bank").append(fighterDiv); 
-        $(fighterDiv).css({"background-color": "white", "color": "black", "border-color": "#0c8191", "margin-right": "5px"});
-        fighterDiv.data("hero", false);
-        
+        //add to character bank
+        $("#character-bank").append(fighterDiv);
+        //reset css
+        $(fighterDiv).css({ "background-color": "white", "color": "black", "border-color": "#0c8191", "margin-right": "5px" });
+        //remove hero flag
+        fighterDiv.attr("data-hero", false);
         //reset hp
         $("#" + fighters[i].name + "hp").text(fighters[i].hp);
     }
@@ -167,5 +174,4 @@ $("#restart").on("click", function () {
     message.text("");
     messageb.text("");
     $("#restart").hide();
-    //location.reload();
 });

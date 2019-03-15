@@ -8,56 +8,65 @@
     <title>Beatle Battle Royale!</title>
 
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 
 <body>
+    <div class="container">
+        <!-- header -->
+        <div class="row">
+            <div class="col-md-6">
+                <div id="main">
+                    <div id="choose">Choose your fighter!</div>
+                    <!-- Starting available characters -->
+                    <div id="select-char">
+                        <div id="character-bank">
+                            <div class="fighter" id=0 data-hero=false>
+                                <span class="name">John</span>
+                            </div>
+                            <div class="fighter" id=1 data-hero=false>
+                                <span class="name">Paul</span>
+                            </div>
+                            <div class="fighter" id=2 data-hero=false>
+                                <span class="name">George</span>
+                            </div>
+                            <div class="fighter" id=3 data-hero=false>
+                                <span class="name">Ringo</span>
+                            </div>
+                        </div>
+                    </div>
 
-    <!-- header -->
-    <div id="header">
-        <h1>Beatle Battle Royale!</h1>
-    </div>
+                    <!-- Display chosen character -->
+                    <div>Your Character</div>
+                    <div id="you"></div>
 
-    <div id="main">
-        <!-- Starting available characters -->
-        <div id="select-char">
-            <div id="character-bank">
-                <div class="fighter" id=0 data-hero=false>
-                    <span class="name">John Lennon</span>
+                    <!-- Display available enemies -->
+                    <div>Enemies available to attack</div>
+                    <div id="enemy-bank"></div>
+
+                    <!-- Select button to attack -->
+                    <div>Fight selection</div>
+                    <button id="attack">Attack</button>
+
+                    <!-- Display defender -->
+                    <div>Defender</div>
+                    <div id="enemy"></div>
+
+                    <!-- Show game message -->
+                    <div id="message"></div>
+                    <div id="message2"></div>
+                    <button id="restart">Restart</button>
+
                 </div>
-                <div class="fighter" id=1 data-hero=false>
-                    <span class="name">Paul McCartney</span>
-                </div>
-                <div class="fighter" id=2 data-hero=false>
-                    <span class="name">George Harrison</span>
-                </div>
-                <div class="fighter" id=3 data-hero=false>
-                    <span class="name">Ringo Starr</span>
+            </div>
+            <div class="col-md-6">
+                <div id="header">
+                    <h1>Beatle Battle Royale!</h1>
                 </div>
             </div>
         </div>
-
-        <!-- Display chosen character -->
-        <div>Your Character</div>
-        <div id="you"></div>
-
-        <!-- Display available enemies -->
-        <div>Enemies available to attack</div>
-        <div id="enemy-bank"></div>
-
-        <!-- Select button to attack -->
-        <div>Fight selection</div>
-        <button id="attack">Attack</button>
-
-        <!-- Display defender -->
-        <div>Defender</div>
-        <div id="enemy"></div>
-
-        <!-- Show game message -->
-        <div id="message"></div>
-        <div id="message2"></div>
-        <button id="restart">Restart</button>
-
     </div>
 
     <!-- link to javascript -->
