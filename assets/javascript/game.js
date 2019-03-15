@@ -14,12 +14,13 @@ var heroScore
 
 //write messages with this variable
 var message = $("#message");
+var messageb = $("#message2");
 
 var fighters = [
-    { name: "john", hp: 120, ap: 8, cap: 10, photo: "assets/images/john.jpg" },
-    { name: "paul", hp: 100, ap: 10, cap: 15, photo: "assets/images/paul.jpg" },
-    { name: "george", hp: 150, ap: 8, cap: 7, photo: "assets/images/george.jpg" },
-    { name: "ringo", hp: 130, ap: 9, cap: 8, photo: "assets/images/ringo.jpg" }
+    { name: "John", hp: 120, ap: 8, cap: 10, photo: "assets/images/john.jpg" },
+    { name: "Paul", hp: 100, ap: 10, cap: 15, photo: "assets/images/paul.jpg" },
+    { name: "George", hp: 150, ap: 8, cap: 7, photo: "assets/images/george.jpg" },
+    { name: "Ringo", hp: 130, ap: 9, cap: 8, photo: "assets/images/ringo.jpg" }
 ]
 
 //add content to fighters
@@ -58,6 +59,7 @@ $(".fighter").on("click", function () {
 
         //move other characters to enemy bank
         $("#enemy-bank").append($("#character-bank"));
+
     }
     //move selected enemy to enemy div
     else if (enemyChosen === false && $(this).data("hero") == false) {
@@ -67,6 +69,9 @@ $(".fighter").on("click", function () {
         enemy = fighters[$(this).attr("id")];
         enemyScore = $("#" + enemy.name + "hp");
         enemyHp = enemy.hp; 
+        
+        //change background color
+        $(enemyDiv).css({"background-color": "black", "color": "white"});
     };
 
     console.log(enemyScore);
@@ -82,16 +87,19 @@ $("#attack").on("click", function(){
         //check if enemy hp is <=0
         if (enemyHp <= 0) {
             $(enemyDiv).hide();
-            message.text("You defeated ");
+            message.text("You defeated " + enemy.name);
             enemyChosen = false; 
+            return 
         }
         
         //reduce hero's hp
         heroHp -= enemy.cap;
-        console.log(heroHp);
-        console.log(hero.hp);
         heroScore.text(heroHp);
-        
+
+        //display message with attacks
+        message.text("You attacked " + enemy.name + " for " + heroAp + " damage.");
+        messageb.text(enemy.name + " counter-attacked for " + enemy.cap + " damage.");
+
         //increase hero's attack power
         heroAp += hero.ap; 
     }
