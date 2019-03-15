@@ -9,6 +9,7 @@ var enemy;
 var heroAp;
 var winCount = 0;
 var gamePlayed = false;
+var alive = true;
 
 //store span here to update hp
 var enemyScore;
@@ -22,7 +23,7 @@ var fighters = [
     { name: "John", hp: 120, ap: 8, cap: 10, photo: "assets/images/john.jpg" },
     { name: "Paul", hp: 100, ap: 10, cap: 15, photo: "assets/images/paul.jpg" },
     { name: "George", hp: 150, ap: 8, cap: 7, photo: "assets/images/george.jpg" },
-    { name: "Ringo", hp: 130, ap: 9, cap: 8, photo: "assets/images/ringo.jpg" }
+    { name: "Ringo", hp: 130, ap: 9, cap: 100, photo: "assets/images/ringo.jpg" }
 ]
 
 
@@ -96,7 +97,7 @@ $(".fighter").on("click", function () {
 
 //attack button
 $("#attack").on("click", function () {
-    if (enemyChosen && heroChosen) {
+    if (enemyChosen && heroChosen && alive) {
         //reduce enemy's hp
         enemyHp -= heroAp;
         enemyScore.text(enemyHp);
@@ -123,14 +124,23 @@ $("#attack").on("click", function () {
         heroHp -= enemy.cap;
         heroScore.text(heroHp);
 
+        if (heroHp > 0) {
+        
         //display message with attacks
         message.text("You attacked " + enemy.name + " for " + heroAp + " damage.");
         messageb.text(enemy.name + " counter-attacked for " + enemy.cap + " damage.");
 
         //increase hero's attack power
         heroAp += hero.ap;
+        }
+        else {
+            message.text("You have been defeated!");
+            messageb.text("");
+            alive = false;
+            $("#restart").show();
+        }
     }
-    else if (winCount < (fighters.length -1)) {
+    else if (winCount < (fighters.length -1) && alive) {
         message.text("No enemy to fight!");
     }
 });
@@ -157,4 +167,5 @@ $("#restart").on("click", function () {
     message.text("");
     messageb.text("");
     $("#restart").hide();
+    //location.reload();
 });
