@@ -154,6 +154,9 @@ $("#restart").on("click", function () {
     winCount = 0;
     alive = true;
 
+    //display choose your fighter message
+    $("#choose").text("Choose your fighter!");
+
     //move fighters to selection div and reset css
     for (let i = 0; i < fighters.length; i++) {
         var fighterDiv = $("#" + i);

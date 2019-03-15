@@ -16,15 +16,24 @@ h1 {
     font-family: "titleFont";
     font-size: 3rem;
     color: #0c8191; 
-    text-align: center;
-    padding-top: 50px;
+    padding-top: 80px;
 }
 
 #main {
     max-width: 471px;
     margin: auto;
-    background-color: rgb(118, 118, 73, 0.5);
+    background-color: rgb(12,129,145,0.5);
     padding: 5px;
+    min-height: 639px;
+}
+
+.txtdisplay {
+    background-color: rgba(61, 132, 141, 0.9);
+    color: white;
+}
+
+.bank {
+    height: 152px;
 }
 
 .fighter-pic {
