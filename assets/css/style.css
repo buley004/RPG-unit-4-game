@@ -19,6 +19,7 @@ h1 {
     max-width: 500px;
     margin: auto;
     background-color: rgb(118, 118, 73, 0.5);
+    padding: 5px;
 }
 
 .fighter-pic {

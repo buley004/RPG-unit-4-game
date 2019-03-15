@@ -150,12 +150,12 @@ $("#restart").on("click", function () {
     heroChosen = false;
     winCount = 0;
     
-    //move fighters to selection div
+    //move fighters to selection div and reset css
     for (let i = 0; i < fighters.length; i++) {
         var fighterDiv = $("#" + i);
         $(fighterDiv).show();
         $("#character-bank").append(fighterDiv); 
-        
+        $(fighterDiv).css({"background-color": "white", "color": "black", "border-color": "#0c8191", "margin-right": "5px"});
         fighterDiv.data("hero", false);
         
         //reset hp
