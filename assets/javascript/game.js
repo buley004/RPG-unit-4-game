@@ -120,10 +120,11 @@ $("#attack").on("click", function () {
 
         //reduce hero's hp
         heroHp -= enemy.cap;
-        heroScore.text(heroHp);
 
         //check if hero is alive
         if (heroHp > 0) {
+            //update hp on screen
+            heroScore.text(heroHp);
 
             //display message with attacks
             message.text("You attacked " + enemy.name + " for " + heroAp + " damage.");
@@ -134,6 +135,7 @@ $("#attack").on("click", function () {
         }
         //display defeat message and restart button
         else {
+            heroScore.text(0);
             message.text("You have been defeated!");
             messageb.text("");
             alive = false;
