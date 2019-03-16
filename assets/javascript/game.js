@@ -14,16 +14,16 @@ var alive = true;
 var enemyScore;
 var heroScore;
 
-//write messages with this variable
+//write messages with these
 var message = $("#message");
 var messageb = $("#message2");
 
 //store fighters and stats here
 var fighters = [
-    { name: "John", hp: 120, ap: 8, cap: 10, photo: "assets/images/john.jpg" },
-    { name: "Paul", hp: 100, ap: 10, cap: 15, photo: "assets/images/paul.jpg" },
-    { name: "George", hp: 150, ap: 8, cap: 7, photo: "assets/images/george.jpg" },
-    { name: "Ringo", hp: 130, ap: 9, cap: 100, photo: "assets/images/ringo.jpg" }
+    { name: "John", hp: 120, ap: 7, cap: 16, photo: "assets/images/john.jpg" },
+    { name: "Paul", hp: 100, ap: 11, cap: 20, photo: "assets/images/paul.jpg" },
+    { name: "George", hp: 150, ap: 6, cap: 12, photo: "assets/images/george.jpg" },
+    { name: "Ringo", hp: 130, ap: 8, cap: 13, photo: "assets/images/ringo.jpg" }
 ]
 
 //hide restart button
@@ -142,6 +142,7 @@ $("#attack").on("click", function () {
             $("#restart").show();
         }
     }
+    //display message if no enemy selected
     else if (winCount < (fighters.length - 1) && alive) {
         message.text("No enemy to fight!");
     }
@@ -149,6 +150,7 @@ $("#attack").on("click", function () {
 
 //reset button
 $("#restart").on("click", function () {
+    //reset variablees
     heroChosen = false;
     enemyChosen = false;
     winCount = 0;
