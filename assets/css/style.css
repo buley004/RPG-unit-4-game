@@ -1,3 +1,4 @@
+/* load custom fonts */
 @font-face {
     font-family: "titleFont";
     src: url("../fonts/Brewsky.ttf"); 
@@ -8,10 +9,12 @@
     src: url("../fonts/Sniglet-Regular.ttf");
 }
 
+/* set top and bottom margins */
 .col-md-6 {
-    margin-top: 20px;
+    margin: 20px 0px 20px 0px;
 }
 
+/* set background image */
 body {
     background-image: url('../images/background.jpg');
     background-size: cover;
@@ -24,6 +27,7 @@ h1 {
     padding-top: 73px;
 }
 
+/* main game board css */
 #main {
     max-width: 471px;
     margin: auto;
