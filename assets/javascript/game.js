@@ -21,7 +21,7 @@ var messageb = $("#message2");
 //store fighters and stats here
 var fighters = [
     { name: "John", hp: 120, ap: 7, cap: 16, photo: "assets/images/john.jpg" },
-    { name: "Paul", hp: 100, ap: 11, cap: 20, photo: "assets/images/paul.jpg" },
+    { name: "Paul", hp: 100, ap: 10, cap: 20, photo: "assets/images/paul.jpg" },
     { name: "George", hp: 150, ap: 6, cap: 12, photo: "assets/images/george.jpg" },
     { name: "Ringo", hp: 130, ap: 8, cap: 13, photo: "assets/images/ringo.jpg" }
 ]
