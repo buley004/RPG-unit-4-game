@@ -3,6 +3,11 @@
     src: url("../fonts/Brewsky.ttf"); 
 }
 
+@font-face {
+    font-family: "Sniglet";
+    src: url("../fonts/Sniglet-Regular.ttf");
+}
+
 .col-md-6 {
     margin-top: 20px;
 }
