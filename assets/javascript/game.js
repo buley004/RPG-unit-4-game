@@ -90,8 +90,6 @@ $(".fighter").on("click", function () {
         message.text("");
         $("#choose").text("");
     };
-
-    console.log(enemyScore);
 });
 
 //attack button
