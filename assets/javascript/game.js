@@ -57,7 +57,7 @@ $(".fighter").on("click", function () {
         heroDiv = this;
         $("#you").append(heroDiv);
         heroChosen = true;
-        $(this).attr("data-hero", true);
+        $(this).attr("data-hero", 1);
         hero = fighters[$(this).attr("id")];
         heroAp = hero.ap;
         heroHp = hero.hp;
@@ -75,7 +75,7 @@ $(".fighter").on("click", function () {
 
     }
     //move selected enemy to enemy div
-    else if (enemyChosen === false && $(this).data("hero") == false && winCount < (fighters.length-1)) {
+    else if (enemyChosen === false && $(this).attr("data-hero") == 0 && winCount < (fighters.length-1)) {
         enemyDiv = this;
         $("#enemy").append(enemyDiv);
         enemyChosen = true;
@@ -167,7 +167,7 @@ $("#restart").on("click", function () {
         //reset css
         $(fighterDiv).css({ "background-color": "white", "color": "black", "border-color": "#0c8191", "margin-right": "5px" });
         //remove hero flag
-        fighterDiv.attr("data-hero", false);
+        fighterDiv.attr("data-hero", 0);
         //reset hp
         $("#" + fighters[i].name + "hp").text(fighters[i].hp);
     }
